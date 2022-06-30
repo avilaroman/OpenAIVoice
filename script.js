@@ -1,14 +1,14 @@
 
-// 1. Set up the Streaming Speech Recognition API
-var final_transcript = 'The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly. \n\
+// 1. Configurando el Streaming Speech Recognition API
+var final_transcript = 'La siguiente es una conversación con la asistente AI. que es servicial, creativo, inteligente y práctico para ciertas cosas. \n\
 \n\
-Human: Hello, who are you?\n\
-AI: I am an AI created by OpenAI. How can I help you today?\n\
+Human: Hola, Quién eres?\n\
+AI: Soy una AI creada por OpenAI. ¿Cómo te puedo ayudar?\n\
 Human: ';
 
-var completionWord = "complete";
+var completionWord = "cambio";
 
-var temporary_status = 'Listening...';
+var temporary_status = 'Escuchando...';
 document.body.innerHTML = temporary_status;
 var recognizing = false;
 var ignore_onend;
@@ -19,7 +19,7 @@ recognition.continuous = true;
 recognition.interimResults = true;
 recognition.onstart = function() {
   recognizing = true;
-  temporary_status = "\n\nListening...  Say '"+completionWord+"' to Submit to the AI.";
+  temporary_status = "\n\nEscuchando...  Di '"+completionWord+"' para enviar el mensaje.";
   updateStatus();
 };
 recognition.onerror = function(event) {
@@ -29,12 +29,12 @@ recognition.onerror = function(event) {
     ignore_onend = true;
   }
   if (event.error == 'audio-capture') {
-    temporary_status = "\n\nDidn't detect any microphone...";
+    temporary_status = "\n\nNo se ha detectado ningún micrófono...";
     updateStatus();
     ignore_onend = true;
   }
   if (event.error == 'not-allowed') {
-    temporary_status = "\n\nSpeech recognition blocked...";
+    temporary_status = "\n\nReconocimiento de Voz Bloqueado...";
     updateStatus();
     ignore_onend = true;
   }
@@ -44,7 +44,7 @@ recognition.onresult = function(event) {
   if (typeof(event.results) == 'undefined') {
     recognition.onend = null;
     recognition.stop();
-    temporary_status = "\n\nBrowser doesn't support speech recognition...";
+    temporary_status = "\n\nEl Browser no soporta el reconocimiento de voz...";
     return;
   }
   for (var i = event.resultIndex; i < event.results.length; ++i) {
@@ -67,11 +67,11 @@ recognition.onresult = function(event) {
 recognition.onend = function() {
   recognizing = false;
   if (ignore_onend) {
-    if (temporary_status === "\n\nDidn't detect any speech...") {
+    if (temporary_status === "\n\nNo se detectó ninguna conversación...") {
       startButton();
   } return; }
   final_transcript += "\nAI:"; // <- NO SPACE AFTER THE COLON GRAAAAAGH
-  temporary_status = "\n\nWaiting for AI...";
+  temporary_status = "\n\nEsperando a la AI...";
   updateStatus();
   queryAPI();
 };
@@ -86,13 +86,13 @@ function startButton() {
 }
 startButton();
 
-// 2. Submit to GPT-3 and receive a streaming response...
+// 2. Envía a GPT-3 y recibe el streaming de respuesta.
 if (!new URLSearchParams(window.location.search).has("key")) {
-  window.history.replaceState({}, 'OpenAI Voice', "?key=sk-YOURSECRETKEYHERE");
+  window.history.replaceState({}, 'OpenAI Voice', "?key=sk-TuClaveAqui");
 }
 function queryAPI() {
-  if (new URLSearchParams(window.location.search).get("key") === "sk-YOURSECRETKEYHERE") {
-    temporary_status = "\n\n--~*Put your Open AI API Key into the URL bar and refresh!*~--\n\nExiting...";
+  if (new URLSearchParams(window.location.search).get("key") === "sk-TuClaveAqui") {
+    temporary_status = "\n\n--~*Ingresa tu Open AI API Key en esta barra de URL y actualiza!*~--\n\nEmocionante...";
     updateStatus();
     return;
   }
@@ -127,7 +127,7 @@ function queryAPI() {
       return;
     }
 
-    // Otherwise speak what we're receiving.
+    // Otra manera de hablar lo que está recibiendo.
     speak(JSON.parse(e.data).choices[0].text);
   }.bind(this);
   AIRequest.addEventListener('message', messageHandler);
@@ -145,7 +145,7 @@ var startIfDoneTalking = function () {
 }
 
 // 3. Set up feeding the Streaming GPT-3 Info into the Text to Speech engine
-alert("Ensure that your OpenAI API Key has been added to the URL.\nThis dialog also enables voice synthesis.");
+alert("Asegurate que tu OpenAI API Key fué añadida a la URL de arriba.\nEste diálogo también activa la sintetización de la voz.");
 
 var synthesizedVoices = window.speechSynthesis.getVoices();
 window.speechSynthesis.onvoiceschanged = (event) => {
@@ -190,7 +190,7 @@ function speak(input = '', forceSpeak = false) {
   updateStatus();
 }
 
-// Utility Functions
+// Funciones útiles
 var two_line   = /\n\n/g;
 var one_line   = /\n/g;
 var first_char = /\S/;
