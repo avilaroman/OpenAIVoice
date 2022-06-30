@@ -6,7 +6,7 @@ Human: Hola, Quién eres?\n\
 AI: Soy una AI creada por OpenAI. ¿Cómo te puedo ayudar?\n\
 Human: ';
 
-var completionWord = "cambio";
+var completionWord = "final";
 
 var temporary_status = 'Escuchando...';
 document.body.innerHTML = temporary_status;
@@ -19,12 +19,12 @@ recognition.continuous = true;
 recognition.interimResults = true;
 recognition.onstart = function() {
   recognizing = true;
-  temporary_status = "\n\nEscuchando...  Di '"+completionWord+"' para enviar el mensaje.";
+  temporary_status = "\n\nEscuchando...  Dile '"+completionWord+"' para terminal el mensaje.";
   updateStatus();
 };
 recognition.onerror = function(event) {
   if (event.error == 'no-speech') {
-    temporary_status = "\n\nDidn't detect any speech...";
+    temporary_status = "\n\nNo se detectó ninguna conversación...";
     updateStatus();
     ignore_onend = true;
   }
@@ -144,7 +144,7 @@ var startIfDoneTalking = function () {
   }, 1500);
 }
 
-// 3. Set up feeding the Streaming GPT-3 Info into the Text to Speech engine
+// 3. Configurando el llenado del Streaming GPT-3 Info en el motor de Texto a Voz.
 alert("Asegurate que tu OpenAI API Key fué añadida a la URL de arriba.\nEste diálogo también activa la sintetización de la voz.");
 
 var synthesizedVoices = window.speechSynthesis.getVoices();
@@ -156,7 +156,7 @@ function speakVoice(speech) {
 
   for (let i = 0; i < synthesizedVoices.length; i++){
     //console.log(synthesizedVoices[i]);
-    if (synthesizedVoices[i].voiceURI === "Google UK English Female") { //Google US English, Google UK English Female, Google UK English Male
+    if (synthesizedVoices[i].voiceURI === "Google español") { //Google US English, Google UK English Female, Google UK English Male
       speechUtterance.voice = synthesizedVoices[i];
     }
   }
