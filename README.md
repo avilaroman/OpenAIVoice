@@ -1,11 +1,11 @@
-# OpenAI API Voice Interface
+# Interface de Voz de OpenAI API
 
-### You need an OpenAI API Key to run this example!
+### Necesitas una OpenAI API para correr tu propio experimento.
 
-This is a simple little voice to voice example app for the OpenAI API.  Simply paste your secret key into the URL field, click through the alert (user interaction is necessary to activate voice synthesis), and enable your microphone.  This has only been tested on Windows in Chrome 83 and is unlikely to work in other browsers.
+Esta es una pequeña aplicación de ejemplo de voz a voz simple para la API de OpenAI. Simplemente pegue su clave secreta en el campo URL, haga clic en la alerta (la interacción del usuario es necesaria para activar la síntesis de voz) y habilite su micrófono. Esto solo se ha probado en Windows en Chrome 83 y es poco probable que funcione en otros navegadores.
 
-This example only depends on [sse.js](https://github.com/mpetazzoni/sse.js) to POST authorization credentials through an EventSource.
+Este ejemplo solo depende de [sse.js](https://github.com/mpetazzoni/sse.js) para publicar las credenciales de autorización a través de un EventSource.
 
-This is not meant to serve as an example for how to use the API; it was put together very quickly as a proof of concept.  More work will be needed to ensure robustness, improve compatibility with other browsers, and to improve the back and forth time in conversations.
+Esto no pretende servir como un ejemplo de cómo usar la API; se armó muy rápidamente como prueba de concepto. Se necesitará más trabajo para garantizar la robustez, mejorar la compatibilidad con otros navegadores y mejorar el tiempo de ida y vuelta en las conversaciones.
 
-The best thing to ask it is to "Tell me a story (complete)".
+Lo mejor para pedirlo es "Cuéntame un cuento (completo)".
