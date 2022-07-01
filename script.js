@@ -2,9 +2,9 @@
 // 1. Configurando el Streaming Speech Recognition API
 var final_transcript = 'La siguiente es una conversación con la asistente AI. que es servicial, creativo, inteligente y práctico para ciertas cosas. \n\
 \n\
-Human: Hola, Quién eres?\n\
-AI: Soy una AI creada por OpenAI. ¿Cómo te puedo ayudar?\n\
-Human: ';
+Humano: Hola, ¿Quién eres?\n\
+AI: Soy una inteligencia artificial creada por OpenAI. ¿En qué te puedo ayudar?\n\
+Humano: ';
 
 var completionWord = "final";
 
@@ -19,7 +19,7 @@ recognition.continuous = true;
 recognition.interimResults = true;
 recognition.onstart = function() {
   recognizing = true;
-  temporary_status = "\n\nEscuchando...  Dile '"+completionWord+"' para terminal el mensaje.";
+  temporary_status = "\n\nEscuchando...  Dile '"+completionWord+"' para terminar el mensaje.";
   updateStatus();
 };
 recognition.onerror = function(event) {
@@ -116,12 +116,12 @@ function queryAPI() {
   let messageHandler = function (e) {
     console.log(e.data);
 
-    // If finished speaking, transfer to listening again.
+    // Si finalizó de hablar, transferir a escucha de nuevo.
     if (e.data === "[DONE]"){// || !e.data || !JSON.parse(e.data).choices[0].text) {
       AIRequest.close();
       AIRequest.removeEventListener("message", messageHandler);
       speak('', true);
-      final_transcript += "\nHuman: ";
+      final_transcript += "\nHumano: ";
       updateStatus();
       startIfDoneTalking();
       return;
