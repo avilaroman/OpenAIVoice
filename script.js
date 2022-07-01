@@ -1,13 +1,10 @@
-
 // 1. Configurando el Streaming Speech Recognition API
 var final_transcript = 'La siguiente es una conversación con la asistente AI. que es servicial, creativo, inteligente y práctico para ciertas cosas. \n\
 \n\
 Humano: Hola, ¿Quién eres?\n\
 AI: Soy una inteligencia artificial creada por OpenAI. ¿En qué te puedo ayudar?\n\
 Humano: ';
-
-var completionWord = "final";
-
+var completionWord = "CONTROL";
 var temporary_status = 'Escuchando...';
 document.body.innerHTML = temporary_status;
 var recognizing = false;
