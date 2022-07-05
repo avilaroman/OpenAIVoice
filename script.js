@@ -4,7 +4,7 @@ var final_transcript = 'La siguiente es una conversación con la asistente AI. q
 Humano: Hola, ¿Quién eres?\n\
 AI: Soy una inteligencia artificial creada por OpenAI. ¿En qué te puedo ayudar?\n\
 Humano: ';
-var completionWord = "CONTROL";
+var completionWord = "control";
 var temporary_status = 'Escuchando...';
 document.body.innerHTML = temporary_status;
 var recognizing = false;
