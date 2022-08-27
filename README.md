@@ -1,5 +1,5 @@
 # Interface de Voz de OpenAI API
-- Demo: [https://avilaroman.github.io/OpenAIVoice/](https://avilaroman.github.io/OpenAIVoice)
+- Demo: [https://avilaroman.github.io/VozOpenAI/](https://avilaroman.github.io/VozOpenAI)
 
 ### Necesitas una OpenAI API KEY para correr tu propio experimento. ###
 - Solo deberán registrarse en beta.openai.com/signup y comenzar a experimentar con la API. Generar su propia key (es gratis) y luego usarla en la URL del proyecto.
